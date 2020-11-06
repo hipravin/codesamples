@@ -1,0 +1,8 @@
+someapplication:
+  servers:
+    - server1
+    - server2
+  parameter1: parametervalue1
+  sub-properties:
+    subproperty1: 10
+    subproperty2: subpropertyvalue2
