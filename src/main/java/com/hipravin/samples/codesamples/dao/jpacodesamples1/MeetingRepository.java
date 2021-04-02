@@ -7,5 +7,5 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional(transactionManager = "codesamples1TransactionManager")
-public interface MeetingRepository extends JpaRepository<MeetingEntity, Long> {
+public interface MeetingRepository extends JpaRepository<MeetingEntity, Long>, CustomMeetingRepository {
 }

@@ -25,5 +25,6 @@ spring:
     url: jdbc:postgresql://localhost:5432/codesamples1
     username: postgres
     password: admin
-
+  jpa:
+    show-sql: true
 

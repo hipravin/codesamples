@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -53,6 +54,12 @@ public class PersistenceCodesamples1AutoConfiguration {
     public PlatformTransactionManager codesamples1TransactionManager(
             final @Qualifier("codesamples1EntityManagerFactory") LocalContainerEntityManagerFactoryBean codesamples1EntityManagerFactory) {
         return new JpaTransactionManager(codesamples1EntityManagerFactory.getObject());
+    }
+
+    @Primary
+    @Bean(name = "jdbcTemplateCodesamples1")
+    public JdbcTemplate jdbcTemplateCodesamples1() {
+        return new JdbcTemplate(codesamples1DataSource());
     }
 
 }
