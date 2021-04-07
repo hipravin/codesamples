@@ -1,4 +1,7 @@
 spring:
+  config:
+    import: someapplication.yml
+
   profiles:
     active: dev
 

@@ -1,11 +1,29 @@
 package com.hipravin.samples.codesamples.dao.jpacodesamples1;
 
+import org.springframework.data.domain.AfterDomainEventPublication;
+import org.springframework.data.domain.DomainEvents;
+
 import javax.persistence.*;
 import java.time.OffsetDateTime;
+import java.util.Collection;
+import java.util.Collections;
 
 @Entity
 @Table(name = "MEETINGS")
 public class MeetingEntity {
+    @DomainEvents
+    Collection<Object> domainEvents() {
+        // … return events you want to get published here
+        System.out.println("de");
+        return Collections.singleton("1");
+    }
+
+    @AfterDomainEventPublication
+    void callbackMethod() {
+        // … potentially clean up domain events list
+        System.out.println("decallback");
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "mtgSeq")
     @SequenceGenerator(sequenceName = "MTG_ID_SEQ", allocationSize = 100, name = "mtgSeq")

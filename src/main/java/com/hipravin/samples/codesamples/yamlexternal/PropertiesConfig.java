@@ -6,6 +6,6 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 @EnableConfigurationProperties(SomeApplicationConfigurationProperties.class)
-@PropertySource(value = "classpath:someapplication.yml", factory = YamlPropertySourceFactory.class)
+//@PropertySource(value = "classpath:someapplication.yml", factory = YamlPropertySourceFactory.class)
 public class PropertiesConfig {
 }
