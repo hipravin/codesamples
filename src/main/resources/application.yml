@@ -13,8 +13,11 @@ spring:
         jdbc:
           time_zone: America/New_York
 ---
+
 spring:
-  profiles: dev
+  config:
+    activate:
+      on-profile: dev
 
 #  datasource:
 #    url: jdbc:postgresql://localhost:5432/codesamples1
@@ -30,4 +33,3 @@ spring:
     password: admin
   jpa:
     show-sql: true
-

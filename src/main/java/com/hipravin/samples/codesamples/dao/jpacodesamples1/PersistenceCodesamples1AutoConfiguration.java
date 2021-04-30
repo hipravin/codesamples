@@ -39,6 +39,25 @@ public class PersistenceCodesamples1AutoConfiguration {
                 .type(HikariDataSource.class).build();
     }
 
+
+    /**
+     * With current approach some auto configurations may be lost (spring.jpa.properties, e.g. time_zone), so better to use following (from docs)
+     *
+
+     *
+
+     @Bean
+     public LocalContainerEntityManagerFactoryBean orderEntityManagerFactory(
+     EntityManagerFactoryBuilder builder) {
+     return builder
+     .dataSource(orderDataSource())
+     .packages(Order.class)
+     .persistenceUnit("orders")
+     .build();
+     }
+
+     */
+    
     @Primary
     @Bean(name = "codesamples1EntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean memberEntityManagerFactory(EntityManagerFactoryBuilder builder) {
